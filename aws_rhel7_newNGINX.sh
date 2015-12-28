@@ -40,4 +40,4 @@ baseurl=http://nginx.org/packages/mainline/rhel/7/\$basearch/
 gpgcheck=0
 enabled=1
 EOF
-yum install nginx
+yum install -y nginx
