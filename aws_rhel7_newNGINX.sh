@@ -32,11 +32,11 @@ case $(head -n1 /etc/issue | cut -f 1 -d ' ') in
     Ubuntu)     echo "Error: wrong OS";exit 1 ;;
     *)          type="rhel" ;;
 esac
-
+#AWS or RHEL do not understand this: $releasever
 cat > /etc/yum.repos.d/nginx.repo<<EOF
 [nginx]
 name=nginx repo
-baseurl=http://nginx.org/packages/mainline/centos/7/x86_64/repodata/
+baseurl=http://nginx.org/packages/mainline/rhel/7/$basearch/
 gpgcheck=0
 enabled=1
 EOF
