@@ -20,14 +20,18 @@ HELMFILE_CLUSTER=test_cluster  # Current cluster, you are working with
 TILLER_NAMESPACE=web-service-tiller  # current Tiller namespace
 ```
 
-Kubernetes setup 
-================
+Kubernetes setup (TODO!)
+========================
+(TODO!) This section has only tips, also there is config example in scripts folder  
+In few words:
+- create config file in .kube folder `kubeconfig-%clustername%`
+- create 2 namespaces `web-service` and `web-service-tiller`
 
-**Note!** You should not just copy-paste `kubeconfig-multitenant`, but
+**Tip** You should not just copy-paste `kubeconfig-k8scluster`, but
 **also change namespace to yours**.
 
-**Note!** My `KUBECONFIG` var has a full file path, because in relative
-way it wasn\'t working
+**Note!** Change `KUBECONFIG` var to a full file path, because in relative
+way it may not work
 
 
 So now, when you have set up k8s, you can get all pods in your
@@ -68,7 +72,7 @@ Now, in order to reuse that helm charts, you need an helmfile.
 Helmfile setup
 ==============
 
-In order to reuse a RMN charts repository, you need to add this section
+In order to reuse a AWS charts repository, you need to add this section
 to helmfile.yaml
 
 repositories:
@@ -84,13 +88,13 @@ export `AWS_DEFAULT_REGION` env var. I know that S3 is a global
 resource, but if env var not set - you will get `missingRegion helm S3
 module error`.
 
-**Also! **After you have applied a helmfile and deleted it, and try
-again to apply it, you probably can get and `helm diff module error`.
-To get rid of id you should purge delete helmfile:
+**Also!** After you have applied a helmfile and deleted it, and try
+again to apply it, you probably can get and `helm diff module error`.  
+To get rid of it you should purge delete helmfile:
 
 `helmfile delete --purge`
 
-Helpful scripts:
+Helpful scripts (you can find them in scripts folder):
 ================
 
 #### Helm delete all charts releases
