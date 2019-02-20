@@ -5,7 +5,7 @@
 	#######################################################
 	###	CONFIG SSH FOR ROOT/1(password) LOGIN
 	#######################################################
-ssh -o "StrictHostKeyChecking no" -i oregon-nbc.pem ec2-user@$1 << EOF
+ssh -o "StrictHostKeyChecking no" -i oregon.pem ec2-user@$1 << EOF
 
 sudo su
 sed -i '/PermitRootLogin/d' /etc/ssh/sshd_config 

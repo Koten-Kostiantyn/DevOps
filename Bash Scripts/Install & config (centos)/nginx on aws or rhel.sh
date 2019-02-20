@@ -16,7 +16,7 @@ if [ ! -z "$(grep ^admin: /etc/passwd)" ] && [ -z "$1" ]; then
     exit 1
 fi
 
-# Check admin user account
+# Check admin user group
 if [ ! -z "$(grep ^admin: /etc/group)" ] && [ -z "$1" ]; then
     echo "Error: group admin exists"
     echo
@@ -32,7 +32,9 @@ case $(head -n1 /etc/issue | cut -f 1 -d ' ') in
     Ubuntu)     echo "Error: wrong OS";exit 1 ;;
     *)          type="rhel" ;;
 esac
-#AWS or RHEL do not understand this: $releasever
+# AWS or RHEL do not understand this: $releasever
+
+# Install nginx to RHEL(any version)
 cat > /etc/yum.repos.d/nginx.repo<<EOF
 [nginx]
 name=nginx repo
