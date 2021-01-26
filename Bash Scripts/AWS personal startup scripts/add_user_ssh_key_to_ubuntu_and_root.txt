@@ -1,0 +1,7 @@
+#!/bin/bash
+
+echo "ssh-rsa xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx user@user
+" >> ~/.ssh/authorized_keys
+
+echo "ssh-rsa xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx user@user
+" >> /home/ubuntu/.ssh/authorized_keys
